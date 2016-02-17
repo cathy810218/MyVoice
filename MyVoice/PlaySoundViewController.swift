@@ -10,10 +10,13 @@ import UIKit
 import AVFoundation
 
 class PlaySoundViewController: UIViewController {
+  
+  // global variables
   var soundEffect: AVAudioPlayer!
   var receivedAudio: RecordAudio!
   var audioEngine: AVAudioEngine!
   var audioFile: AVAudioFile!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     audioEngine = AVAudioEngine()
