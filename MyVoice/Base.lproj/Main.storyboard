@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Record Sound View Controller-->
+        <!--My Voice-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RecordSoundViewController" customModule="MyVoice" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,7 +20,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNz-cS-QkD">
                                 <rect key="frame" x="250" y="250" width="100" height="100"/>
-                                <state key="normal" backgroundImage="microphone"/>
+                                <state key="normal" backgroundImage="microphone-1"/>
                                 <connections>
                                     <action selector="recordAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZWs-oe-JOp"/>
                                 </connections>
@@ -49,7 +49,7 @@
                             <constraint firstItem="cNz-cS-QkD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vGY-zO-A8G"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dpN-Tk-Dnx"/>
+                    <navigationItem key="navigationItem" title="My Voice" id="dpN-Tk-Dnx"/>
                     <connections>
                         <outlet property="recordButton" destination="cNz-cS-QkD" id="ZSI-4E-9Pd"/>
                         <outlet property="recordingLabel" destination="Kg2-11-Hes" id="PN9-5f-FSu"/>
@@ -151,7 +151,7 @@
         <image name="chipmunk" width="100" height="100"/>
         <image name="darthvader" width="100" height="100"/>
         <image name="fast" width="100" height="100"/>
-        <image name="microphone" width="100" height="100"/>
+        <image name="microphone-1" width="100" height="100"/>
         <image name="slow" width="100" height="100"/>
         <image name="stop2x-iphone" width="50" height="50"/>
     </resources>

@@ -14,34 +14,23 @@ class PlaySoundViewController: UIViewController {
   var receivedAudio: RecordAudio!
   var audioEngine: AVAudioEngine!
   var audioFile: AVAudioFile!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        audioEngine = AVAudioEngine()
-        audioFile = try! AVAudioFile(forReading: receivedAudio.filePathURL) // convert NSURL to AVAudioFile type
-      
-      
-        // Do any additional setup after loading the view.
-//      let path = NSBundle.mainBundle().pathForResource("mysing", ofType: "m4a")!
-//      let url = NSURL.fileURLWithPath(path)
-//      do {
-//        soundEffect = try AVAudioPlayer(contentsOfURL: url)
-//        soundEffect.enableRate = true
-//      } catch {
-//        // cant load the file
-//      }
-      soundEffect = try! AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL)
-      soundEffect.enableRate = true
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    audioEngine = AVAudioEngine()
+    audioFile = try! AVAudioFile(forReading: receivedAudio.filePathURL) // convert NSURL to AVAudioFile type
+    soundEffect = try! AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL)
+    soundEffect.enableRate = true
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
   @IBAction func snailButtonPressed(sender: AnyObject) {
     playSoundWithRate(0.5)
   }
-
+  
   @IBAction func rabbitButtonPressed(sender: AnyObject) {
     playSoundWithRate(1.5)
   }
@@ -56,14 +45,16 @@ class PlaySoundViewController: UIViewController {
   
   @IBAction func stopButtonPressed(sender: AnyObject) {
     soundEffect.stop()
+    audioEngine.stop()
+    audioEngine.reset()
   }
-
+  
   
   func playSoundWithRate(rate: Float) {
     soundEffect.stop()
     audioEngine.stop()
     audioEngine.reset()
-
+    
     soundEffect.rate = rate
     soundEffect.currentTime = 0.0
     soundEffect.play()
