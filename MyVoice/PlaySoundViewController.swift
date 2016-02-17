@@ -44,16 +44,12 @@ class PlaySoundViewController: UIViewController {
   }
   
   @IBAction func stopButtonPressed(sender: AnyObject) {
-    soundEffect.stop()
-    audioEngine.stop()
-    audioEngine.reset()
+    resetAndStopSound()
   }
   
   
   func playSoundWithRate(rate: Float) {
-    soundEffect.stop()
-    audioEngine.stop()
-    audioEngine.reset()
+    resetAndStopSound()
     
     soundEffect.rate = rate
     soundEffect.currentTime = 0.0
@@ -61,9 +57,7 @@ class PlaySoundViewController: UIViewController {
   }
   
   func playSoundWithPitch(pitch: Float) {
-    soundEffect.stop()
-    audioEngine.stop()
-    audioEngine.reset()
+    resetAndStopSound()
     
     let audioPlayerNode = AVAudioPlayerNode()
     audioEngine.attachNode(audioPlayerNode)
@@ -80,4 +74,9 @@ class PlaySoundViewController: UIViewController {
     
   }
   
+  func resetAndStopSound() {
+    soundEffect.stop()
+    audioEngine.stop()
+    audioEngine.reset()
+  }
 }
